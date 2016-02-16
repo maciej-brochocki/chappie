@@ -1,2 +1,1 @@
-python chappie.py haarcascade_frontalface_alt.xml
-
+python chappie.py 0 haarcascade_frontalface_alt.xml /dev/tty.usbserial
