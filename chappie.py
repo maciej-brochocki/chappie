@@ -2,6 +2,7 @@
 import sys
 import cv2
 import serial
+import time
 
 # Screen Size Parameters
 width = 320
@@ -21,18 +22,24 @@ midScreenX = (width/2)
 midScreenWindow = 10  # This is the acceptable 'error' for the center of the screen. 
 # The degree of change that will be applied to the servo each time we update the position.
 stepSize = 1
+ctrlFrame = bytearray(4)
 
-cameraDev = sys.argv[1]
-video_capture = cv2.VideoCapture(cameraDev, width, height) # open video stream
+#cameraDev = sys.argv[1]
+cameraDev = 0
+video_capture = cv2.VideoCapture(cameraDev) # open video stream
+video_capture.set(3, width)
+video_capture.set(4, height)
+
 cascadePath = sys.argv[2]
 faceCascade = cv2.CascadeClassifier(cascadePath) # load detection description, here-> front face detection : "haarcascade_frontalface_alt.xml"
 serialDev = sys.argv[3]
 port = serial.Serial(serialDev, 57600) # Baud rate is set to 57600 to match the Arduino baud rate.
 # Send the initial pan/tilt angles to the Arduino to set the device up to look straight forward.
-port.write(tiltChannel)        # Send the Tilt Servo ID
-port.write(servoTiltPosition)  # Send the Tilt Position (currently 90 degrees)
-port.write(panChannel)         # Send the Pan Servo ID
-port.write(servoPanPosition)   # Send the Pan Position (currently 90 degrees)
+ctrlFrame[0] = tiltChannel        # Send the Tilt Servo ID
+ctrlFrame[1] = servoTiltPosition  # Send the Tilt Position (currently 90 degrees)
+ctrlFrame[2] = panChannel         # Send the Pan Servo ID
+ctrlFrame[3] = servoPanPosition   # Send the Pan Position (currently 90 degrees)
+port.write(ctrlFrame)
 
 while True:
     # grab a new frame
@@ -55,34 +62,36 @@ while True:
     cv2.imshow('Chappie', gray)
 	
     # Find out if any faces were detected.
-    if (len(faces) > 0)
+    for (x, y, w, h) in faces:
         # If a face was found, find the midpoint of the first face in the frame.
         # NOTE: The .x and .y of the face rectangle corresponds to the upper left corner of the rectangle,
         #       so we manipulate these values to find the midpoint of the rectangle.
-        midFaceY = faces[0].y + (faces[0].h/2)
-        midFaceX = faces[0].x + (faces[0].w/2)
+        midFaceY = y + (h/2)
+        midFaceX = x + (w/2)
         # Find out if the Y component of the face is below the middle of the screen.
-        if (midFaceY < (midScreenY - midScreenWindow))
-            if (servoTiltPosition >= 5)
+        if midFaceY < (midScreenY - midScreenWindow):
+            if servoTiltPosition >= 5:
                 servoTiltPosition -= stepSize # If it is below the middle of the screen, update the tilt position variable to lower the tilt servo.
         # Find out if the Y component of the face is above the middle of the screen.
-        elif (midFaceY > (midScreenY + midScreenWindow))
-            if (servoTiltPosition <= 175)
+        elif midFaceY > (midScreenY + midScreenWindow):
+            if servoTiltPosition <= 175:
     		    servoTiltPosition += stepSize # Update the tilt position variable to raise the tilt servo.
         # Find out if the X component of the face is to the left of the middle of the screen.
-        if (midFaceX < (midScreenX - midScreenWindow))
-            if(servoPanPosition >= 5)
+        if midFaceX > (midScreenX - midScreenWindow): #change hw and <
+            if servoPanPosition >= 5:
                 servoPanPosition -= stepSize # Update the pan position variable to move the servo to the left.
         # Find out if the X component of the face is to the right of the middle of the screen.
-        elif (midFaceX > (midScreenX + midScreenWindow))
-            if(servoPanPosition <= 175)
+        elif midFaceX < (midScreenX + midScreenWindow): #change hw and >
+            if servoPanPosition <= 175:
                 servoPanPosition += stepSize # Update the pan position variable to move the servo to the right.
         # Update the servo positions by sending the serial command to the Arduino.
-        port.write(tiltChannel)        # Send the Tilt Servo ID
-        port.write(servoTiltPosition)  # Send the Tilt Position (currently 90 degrees)
-        port.write(panChannel)         # Send the Pan Servo ID
-        port.write(servoPanPosition)   # Send the Pan Position (currently 90 degrees)
+        ctrlFrame[0] = tiltChannel        # Send the Tilt Servo ID
+        ctrlFrame[1] = servoTiltPosition  # Send the Tilt Position (currently 90 degrees)
+        ctrlFrame[2] = panChannel         # Send the Pan Servo ID
+        ctrlFrame[3] = servoPanPosition   # Send the Pan Position (currently 90 degrees)
+        port.write(ctrlFrame)
         time.sleep(0.001)
+        break
 	
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
