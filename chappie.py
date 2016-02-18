@@ -8,7 +8,7 @@ import time
 width = 320
 height = 240
 # Variables for keeping track of the current servo positions.
-servoTiltPosition = 90
+servoTiltPosition = 60 #CHG: original 90, hw not straight!
 servoPanPosition = 90
 # The pan/tilt servo ids for the Arduino serial command interface.
 tiltChannel = 0
@@ -19,17 +19,15 @@ midFaceX = 0
 # The variables correspond to the middle of the screen, and will be compared to the midFace values
 midScreenY = (height/2)
 midScreenX = (width/2)
-midScreenWindow = 10  # This is the acceptable 'error' for the center of the screen. 
+midScreenWindow = 20  #CHG: original 10 # This is the acceptable 'error' for the center of the screen. 
 # The degree of change that will be applied to the servo each time we update the position.
 stepSize = 1
 ctrlFrame = bytearray(4)
 
-#cameraDev = sys.argv[1]
-cameraDev = 0
+cameraDev = int(sys.argv[1])
 video_capture = cv2.VideoCapture(cameraDev) # open video stream
 video_capture.set(3, width)
 video_capture.set(4, height)
-
 cascadePath = sys.argv[2]
 faceCascade = cv2.CascadeClassifier(cascadePath) # load detection description, here-> front face detection : "haarcascade_frontalface_alt.xml"
 serialDev = sys.argv[3]
@@ -77,13 +75,13 @@ while True:
             if servoTiltPosition <= 175:
     		    servoTiltPosition += stepSize # Update the tilt position variable to raise the tilt servo.
         # Find out if the X component of the face is to the left of the middle of the screen.
-        if midFaceX > (midScreenX - midScreenWindow): #change hw and <
-            if servoPanPosition >= 5:
-                servoPanPosition -= stepSize # Update the pan position variable to move the servo to the left.
+        if midFaceX < (midScreenX - midScreenWindow):
+            if servoPanPosition <= 175: #CHG: hw reversed!
+                servoPanPosition += stepSize # Update the pan position variable to move the servo to the left.
         # Find out if the X component of the face is to the right of the middle of the screen.
-        elif midFaceX < (midScreenX + midScreenWindow): #change hw and >
-            if servoPanPosition <= 175:
-                servoPanPosition += stepSize # Update the pan position variable to move the servo to the right.
+        elif midFaceX > (midScreenX + midScreenWindow):
+            if servoPanPosition >= 5: #CHG: hw reversed!
+                servoPanPosition -= stepSize # Update the pan position variable to move the servo to the right.
         # Update the servo positions by sending the serial command to the Arduino.
         ctrlFrame[0] = tiltChannel        # Send the Tilt Servo ID
         ctrlFrame[1] = servoTiltPosition  # Send the Tilt Position (currently 90 degrees)
