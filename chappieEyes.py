@@ -7,7 +7,7 @@ class Eyes(object):
     # Camera device
     video_Capture = None
     # Preprocessing mode
-    mode = 1
+    mode = 0 # 0 - none, 1 - equalize hist, 2 - clahe
 
     def __init__(self, cameraDev):
         self.video_capture = cv2.VideoCapture(cameraDev) # open video stream
@@ -20,9 +20,9 @@ class Eyes(object):
         ret, frame = self.video_capture.read()
         # and convert to gray
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        if self.mode == 2:
+        if self.mode == 1:
             gray = cv2.equalizeHist(gray)
-        elif self.mode == 3:
+        elif self.mode == 2:
             clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
             gray = clahe.apply(gray)
         return gray
@@ -32,7 +32,7 @@ class Eyes(object):
         self.video_capture.release()
         return
 
-    def setCfg(self, mode):
-        self.mode = mode
+    def setCfg(self):
+        self.mode = (self.mode + 1) % 3
         return
 

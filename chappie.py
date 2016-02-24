@@ -5,10 +5,22 @@ from chappieEyes import Eyes
 from chappieHead import Head
 from chappieBrain import Brain
 
+performance = 0
+
+def help():
+    print ""
+    print "e - eyes postprocessing"
+    print "h - head moves on/off"
+    print "b - brain mode"
+    print "p - perfomrance measurement"
+    print "? - help"
+    print "q - quit"
+
 # initialize
 eyes = Eyes(int(sys.argv[1]))
 head = Head(sys.argv[3], 1)
 brain = Brain(eyes, head, sys.argv[2])
+help()
 
 while True:
     t1 = cv2.getTickCount()
@@ -22,28 +34,27 @@ while True:
     brain.attention(frame)
 
     # measure performance
-    t3 = cv2.getTickCount()
-    te = (t2-t1)/cv2.getTickFrequency()
-    tb = (t3-t2)/cv2.getTickFrequency()
-    fps = cv2.getTickFrequency()/(t3-t1)
-    print "e: %f b: %f fps: %f" % (te, tb, fps)
+    if performance > 0:
+        t3 = cv2.getTickCount()
+        te = (t2-t1)/cv2.getTickFrequency()
+        tb = (t3-t2)/cv2.getTickFrequency()
+        fps = cv2.getTickFrequency()/(t3-t1)
+        print ("\re: %f b: %f fps: %f" % (te, tb, fps)),
 
     # control center
     k = cv2.waitKey(1) & 0xFF
-    if k == ord('1'):
-        eyes.setCfg(1)
-    elif k == ord('2'):
-        eyes.setCfg(2)
-    elif k == ord('3'):
-        eyes.setCfg(3)
-    elif k == ord('4'):
-        head.setCfg(0)
-    elif k == ord('5'):
-        head.setCfg(1)
-    elif k == ord('6'):
-        brain.setCfg(1)
-    elif k == ord('7'):
-        brain.setCfg(2)
+    if k == ord('e'):
+        eyes.setCfg()
+    elif k == ord('h'):
+        head.setCfg()
+    elif k == ord('b'):
+        brain.setCfg()
+    elif k == ord('p'):
+        performance = 1 - performance
+        if performance == 0:
+            print ""
+    elif k == ord('?'):
+        help()
     elif k == ord('q'):
         break
 

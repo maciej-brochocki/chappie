@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 class Brain(object):
     # The variables correspond to the middle of the screen, and will be compared to the midFace values
@@ -6,8 +7,9 @@ class Brain(object):
     midScreenY = 0
     midScreenWindow = 20  #CHG: original 10 # This is the acceptable 'error' for the center of the screen. 
     faceCascade = None
-    head = None
-    mode = 1
+    head = None # head object
+    mode = 0 # 0 - face detection, 1 - object detection
+    prvsFrame = None # store previous frame
 
     def __init__(self, eyes, head, cascadePath):
         self.head = head
@@ -17,17 +19,17 @@ class Brain(object):
         return
 
     def attention(self, frame):
-        if self.mode == 1:
-            objects = self.detectFaces(frame)
-        elif self.mode == 2:
-            objects = self.detectObjects(frame)
+        if self.mode == 0:
+            frame, objects = self.detectFaces(frame)
+        elif self.mode == 1:
+            frame, objects = self.detectObjects(frame)
         self.visualizeObjects(frame, objects)
         self.reaction(objects)
         return
 
     def detectFaces(self, frame):
         # proceed detection
-        return self.faceCascade.detectMultiScale(
+        return frame, self.faceCascade.detectMultiScale(
             frame,
             scaleFactor=1.2,
             minNeighbors=2,
@@ -36,7 +38,18 @@ class Brain(object):
         )
 
     def detectObjects(self, frame):
-        return []
+        newFrame = frame
+        objects = []
+        if self.prvsFrame != None:
+            flow = cv2.calcOpticalFlowFarneback(self.prvsFrame, frame, 0.5, 3, 15, 3, 5, 1.2, 0)
+            mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
+            hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
+            hsv[...,0] = ang*180/np.pi/2
+            hsv[...,1] = 255
+            hsv[...,2] = cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
+            newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+        self.prvsFrame = frame
+        return newFrame, objects
 
     def visualizeObjects(self, frame, objects):
         # draw face area(s)
@@ -74,7 +87,7 @@ class Brain(object):
         cv2.destroyAllWindows()
         return
 
-    def setCfg(self, mode):
-        self.mode = mode
+    def setCfg(self):
+        self.mode = (self.mode + 1) % 2
         return
 
