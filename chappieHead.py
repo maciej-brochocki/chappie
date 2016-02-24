@@ -61,7 +61,11 @@ class Head(object):
 
     def setCfg(self):
         self.dummy = 1 - self.dummy
-        if self.dummy == 0 and self.port == None:
-            self.port = serial.Serial(self.serialDev, 57600) # Baud rate is set to 57600 to match the Arduino baud rate.
+        if self.dummy == 0:
+            if self.port == None:
+                self.port = serial.Serial(self.serialDev, 57600) # Baud rate is set to 57600 to match the Arduino baud rate.
+            self.servoTiltPosition = 60 #CHG: original 90, hw not straight!
+            self.servoPanPosition = 90
+            self.updatePosition()
         return
 
