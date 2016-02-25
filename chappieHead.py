@@ -10,10 +10,10 @@ class Head(object):
     # The degree of change that will be applied to the servo each time we update the position.
     stepSize = 1
     # Serial device
+    serialDev = ""
     port = None
     # Don't use arduino
     dummy = 0
-    serialDev = ""
 
     def __init__(self, serialDev, dummy=0):
         self.dummy = dummy

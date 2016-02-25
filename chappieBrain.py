@@ -10,6 +10,7 @@ class Brain(object):
     head = None # head object
     mode = 0 # 0 - face detection, 1 - object detection
     prvsFrame = None # store previous frame
+    prvsObjects = []
 
     def __init__(self, eyes, head, cascadePath):
         self.head = head
@@ -21,7 +22,7 @@ class Brain(object):
     def attention(self, frame):
         if self.mode == 0:
             frame, objects = self.detectFaces(frame)
-        elif self.mode == 1:
+        else:
             frame, objects = self.detectObjects(frame)
         self.visualizeObjects(frame, objects)
         self.reaction(objects)
@@ -43,11 +44,28 @@ class Brain(object):
         if self.prvsFrame != None:
             flow = cv2.calcOpticalFlowFarneback(self.prvsFrame, frame, 0.5, 3, 15, 3, 5, 1.2, 0)
             mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
-            hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
-            hsv[...,0] = ang*180/np.pi/2
-            hsv[...,1] = 255
-            hsv[...,2] = cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
-            newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+            mag = np.uint8(mag)
+            if self.mode == 1:
+                # fancy colours
+                hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
+                hsv[...,0] = ang*180/np.pi/2
+                hsv[...,1] = 255
+                #hsv[...,2] = cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
+                hsv[...,2] = np.minimum(mag*4, 255)
+                newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+            elif self.mode == 2:
+                # binary
+                ret, newFrame = cv2.threshold(mag,2,255,cv2.THRESH_BINARY)
+                kernel = np.ones((5,5),np.uint8)
+                newFrame = cv2.dilate(newFrame,kernel,iterations = 10)
+                contours,hierarchy = cv2.findContours(newFrame, 1, 2)
+                for cnt in contours:
+                    objects.append(cv2.boundingRect(cnt))
+                if len(objects):
+                    self.prvsObjects = objects
+                else:
+                    objects = self.prvsObjects
+                newFrame = frame.copy()
         self.prvsFrame = frame
         return newFrame, objects
 
@@ -88,6 +106,6 @@ class Brain(object):
         return
 
     def setCfg(self):
-        self.mode = (self.mode + 1) % 2
+        self.mode = (self.mode + 1) % 3
         return
 
