@@ -1,16 +1,19 @@
 import cv2
 import numpy as np
+from helpers import *
 
 class Brain(object):
+    head = None # head object
+    mode = 0 # 0 - face detection, 1 - optical flow, 2 - objects
+    # Mode 0 state:
     # The variables correspond to the middle of the screen, and will be compared to the midFace values
     midScreenX = 0
     midScreenY = 0
     midScreenWindow = 20  #CHG: original 10 # This is the acceptable 'error' for the center of the screen. 
     faceCascade = None
-    head = None # head object
-    mode = 0 # 0 - face detection, 1 - object detection
+    # Mode 1 & 2 state:
     prvsFrame = None # store previous frame
-    prvsObjects = []
+    prvsObjects = [] # store previous objects
 
     def __init__(self, eyes, head, cascadePath):
         self.head = head
@@ -61,6 +64,7 @@ class Brain(object):
                 contours,hierarchy = cv2.findContours(newFrame, 1, 2)
                 for cnt in contours:
                     objects.append(cv2.boundingRect(cnt))
+                objects = mergeAreas([], objects)
                 if len(objects):
                     self.prvsObjects = objects
                 else:
@@ -80,6 +84,7 @@ class Brain(object):
     def reaction(self, objects):
         # Find out if any faces were detected.
         for (x, y, w, h) in objects:
+            change = 0
             # If a face was found, find the midpoint of the first face in the frame.
             # NOTE: The .x and .y of the face rectangle corresponds to the upper left corner of the rectangle,
             #       so we manipulate these values to find the midpoint of the rectangle.
@@ -88,16 +93,19 @@ class Brain(object):
             midFaceX = x + (w/2)
             # Find out if the Y component of the face is below the middle of the screen.
             if midFaceY < (self.midScreenY - self.midScreenWindow):
-                self.head.moveDown()
+                change += self.head.moveDown()
             # Find out if the Y component of the face is above the middle of the screen.
             elif midFaceY > (self.midScreenY + self.midScreenWindow):
-                self.head.moveUp()
+                change += self.head.moveUp()
             # Find out if the X component of the face is to the left of the middle of the screen.
             if midFaceX < (self.midScreenX - self.midScreenWindow):
-                self.head.moveLeft()
+                change += self.head.moveLeft()
             # Find out if the X component of the face is to the right of the middle of the screen.
             elif midFaceX > (self.midScreenX + self.midScreenWindow):
-                self.head.moveRight()
+                change += self.head.moveRight()
+            if change > 0:
+                self.head.updatePosition()
+                self.resetDetector()
             break
         return
 
@@ -108,4 +116,8 @@ class Brain(object):
     def setCfg(self):
         self.mode = (self.mode + 1) % 3
         return
+
+    def resetDetector(self):
+        self.prvsFrame = None
+        self.prvsObjects = []
 

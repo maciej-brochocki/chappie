@@ -18,7 +18,7 @@ def help():
 
 # initialize
 eyes = Eyes(int(sys.argv[1]))
-head = Head(sys.argv[3], 1)
+head = Head(sys.argv[3], 0)
 brain = Brain(eyes, head, sys.argv[2])
 help()
 
