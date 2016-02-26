@@ -15,6 +15,14 @@ class helpersTestCase(unittest.TestCase):
         self.assertTrue(mergeAreas([],[(1,2,3,4),(0,1,5,6)]) == [(0,1,5,6)])
         self.assertTrue(mergeAreas([],[(1,2,3,4),(10,11,3,4)]) == [(1,2,3,4),(10,11,3,4)])
         return
+    def test_overlappingAreas(self):
+        self.assertTrue(overlappingAreas([],[]) == [])
+        self.assertTrue(overlappingAreas([],[(1,2,3,4)]) == [])
+        self.assertTrue(overlappingAreas([(1,2,3,4)],[]) == [(1,2,3,4)])
+        self.assertTrue(overlappingAreas([(0,1,5,6)],[(1,2,3,4)]) == [(0,1,5,6)])
+        self.assertTrue(overlappingAreas([(1,2,3,4)],[(0,1,5,6)]) == [(0,1,5,6)])
+        self.assertTrue(overlappingAreas([(1,2,3,4)],[(0,1,5,4)]) == [(1,2,3,4)])
+        return
 
 if __name__ == '__main__':
     unittest.main()

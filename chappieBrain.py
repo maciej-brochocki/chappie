@@ -65,6 +65,7 @@ class Brain(object):
                 for cnt in contours:
                     objects.append(cv2.boundingRect(cnt))
                 objects = mergeAreas([], objects)
+                objects = overlappingAreas(objects, self.prvsObjects)
                 if len(objects):
                     self.prvsObjects = objects
                 else:

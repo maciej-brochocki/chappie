@@ -24,3 +24,18 @@ def mergeAreas(before, areas):
     before.append(head)
     return mergeAreas(before, after)
 
+def overlappingAreas(src, prv):
+    result = []
+    for element in src:
+        x1, y1, w1, h1 = element
+        found = 0
+        for match in prv:
+            x2, y2, w2, h2 = match
+            if x2 <= x1 and y2 <= y1 and x1+w1 <= x2+w2 and y1+h1 <= y2+h2:
+                result.append(match)
+                found = 1
+                break
+        if found == 0:
+            result.append(element)
+    return result
+
