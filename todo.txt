@@ -1,0 +1,109 @@
+artificial general intelligence
+- research
+  - opencog.org
+  - goodai.com
+  - agi-society.org/resources
+  + not too specialized and not too general (only in=>out, because inefficient: requires milenias of evolution or big resources)
+    + explicit objects level
+
++ start from camera example
+  + hardware
+  + arduino code
+  + pc code
+    x c++ instead of java/processing
+      x HD 6000 camera doesn't work
+        x videoInput library
+        x rgb vs yuy2
+        x own dsho9w graph
+    + python instead of c++
+    + port example code
+
+- attention process
+  + motion vectors (video compression, what else is in mpeg) => mode 1
+    + actually called motion estimation
+      x PRA (pel recursive algorithm) : complex
+      x BMA (block matching algorithm) : simpe
+      x phase corelation
+      + optical fglow : in OpenCV
+  + automatically creates objects => mode 2
+  + system features
+    + object oriented
+    + performance
+      + http://docs.opencv.org/master/dc/d71/tutorial_py_optimization.html#gsc.tab=0
+      + info in the same line, not to flood the output
+    + control keys: switching modes, ? for help, performance info on/off
+    + unit tests
+      + batch file to run
+  - eyes
+    + pass raw frame (gray)
+    + normalize (done, but not usefull here)
+      + http://docs.opencv.org/master/d5/daf/tutorial_py_histogram_equalization.html#gsc.tab=0 //histogram
+    - disable autofocus in camera
+  - mode 0 : faces
+    - smile inside face
+    x what other clasifiers are there? | nothing interesting
+    - append smiles (first)
+  - mode 1 : optical flow
+    + http://docs.opencv.org/master/d7/d8b/tutorial_py_lucas_kanade.html#gsc.tab=0 //optical flow
+    x histogram equalization too early
+    - return flow sum as (1,1) rect from mid screen
+    - substract median flow vector not to be dependent on head moves
+  - mode 2 : objects detection
+    + http://docs.opencv.org/master/d6/d00/tutorial_py_root.html#gsc.tab=0 //all
+    + http://docs.opencv.org/master/d4/d32/minarea_8cpp_example.html#gsc.tab=0 //min enclose rect
+    x http://docs.opencv.org/master/db/d5c/tutorial_py_bg_subtraction.html#gsc.tab=0 //remove bg
+    - noisy objects from light
+      x near edges?
+      x cut off value of 1.5 | even 2 is giving crap in different light
+      x higher resolution | even worse
+      + erosion & dilatation | dilatation used
+      - check parameters of this opticalFlow function
+    + if bounding rectangles are overlapping then join them
+    - if no area then return old
+      x return bit to indicate this (no learning)?
+      - if target moves out of camera window then it stays | may not be a problem if head moves
+      - don't do this for areas on the edge
+        - if there is no move and previous flow was out of the screen
+    - if new area is inside previously returned then return old
+      - if whole screen is selected then we are stuck with this (object too close, light turned on)
+    - return biggest area first
+      - better sort by flow sum (amplitudes)
+    - return also flow image for objects (can be usefull for learning)
+    + reset state after head move
+    - get rid off .copy()
+  - head
+    + optimize sending to arduino (now can do it 2x per frame)
+    - move head away on bad emotions | add positive or nautral default
+
+- demo for sound
+  - multithreading
+    - producer&consumer
+  - listen and look for change
+    - mono first
+    - "python record audio": pyAudio, psychopy
+  - record till done, wait a sec, replay
+  - test of microphone/fft, compression/decompression, speaker
+  - don't listen when replay, so no feedback
+
+- objects recognition
+  - if I cut some data then give some information
+    - for part of image give position and size
+    - for normalized colors give mean and dev (so can detect day/night)
+  - normalize histogram before
+  - return object index
+  - draw image from "imagination", reverse signal from neural network
+  - emotions coded together here
+    - proto-emoions: pleasure, pain
+
+- buttons for reward/punishment
+  - this counts for binary senses (feel/pain, taste x5, smells)
+  - happy/sad diods
+  
+- reaction
+  - reinforcement learning
+
+- higher quality
+  - color
+  - 3d view
+    - http://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html#gsc.tab=0
+  - microphone array
