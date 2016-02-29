@@ -1,4 +1,5 @@
 import cv2
+from subprocess import call
 
 class Eyes(object):
     # Screen Size Parameters
@@ -10,6 +11,7 @@ class Eyes(object):
     mode = 0 # 0 - none, 1 - equalize hist, 2 - clahe
 
     def __init__(self, cameraDev):
+        call("uvcdynctrl" + " -v -d video1 --set='Focus, Auto' 0", shell=True)
         self.video_capture = cv2.VideoCapture(cameraDev) # open video stream
         self.video_capture.set(3, self.width)
         self.video_capture.set(4, self.height)

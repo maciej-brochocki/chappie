@@ -34,13 +34,13 @@ artificial general intelligence
     + control keys: switching modes, ? for help, performance info on/off
     + unit tests
       + batch file to run
-  - eyes
+  + eyes
     + pass raw frame (gray)
     + normalize (done, but not usefull here)
       + http://docs.opencv.org/master/d5/daf/tutorial_py_histogram_equalization.html#gsc.tab=0 //histogram
-    - disable autofocus in camera
-      - uvcdynctrl -v -d video1 --set='Focus, Auto' 0
-      - uvcdynctrl -v -d video1 --get='Focus, Auto'
+    + disable autofocus in camera
+      + uvcdynctrl _v _d video1 __get='Focus, Auto'
+      + uvcdynctrl _v _d video1 __set='Focus, Auto' 0
   - mode 0 : faces
     - smile inside face
     x what other clasifiers are there? | nothing interesting
@@ -109,3 +109,4 @@ artificial general intelligence
   - 3d view
     - http://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html#gsc.tab=0
   - microphone array
+
