@@ -58,7 +58,6 @@ while True:
     elif k == ord('q'):
         break
 
-#clean up
+# clean up
 eyes.close()
 brain.sleep()
-
