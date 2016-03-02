@@ -11,15 +11,17 @@ class Brain(object):
     midScreenY = 0
     midScreenWindow = 20  #CHG: original 10 # This is the acceptable 'error' for the center of the screen. 
     faceCascade = None
+    smileCascade = None
     # Mode 1 & 2 state:
     prvsFrame = None # store previous frame
     prvsObjects = [] # store previous objects
 
-    def __init__(self, eyes, head, cascadePath):
+    def __init__(self, eyes, head):
         self.head = head
         self.midScreenX = eyes.width/2
         self.midScreenY = eyes.height/2
-        self.faceCascade = cv2.CascadeClassifier(cascadePath) # load detection description, here-> front face detection : "haarcascade_frontalface_alt.xml"
+        self.faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml") # load detection description
+        self.smileCascade = cv2.CascadeClassifier("haarcascade_smile.xml") # load detection description
         return
 
     def attention(self, frame):
@@ -33,13 +35,19 @@ class Brain(object):
 
     def detectFaces(self, frame):
         # proceed detection
-        return frame, self.faceCascade.detectMultiScale(
-            frame,
-            scaleFactor=1.2,
-            minNeighbors=2,
-            minSize=(40, 40),
-            flags=cv2.cv.CV_HAAR_DO_CANNY_PRUNING
-        )
+        smiles = [[]]
+        faces = self.faceCascade.detectMultiScale(frame, scaleFactor=1.2, minNeighbors=2, minSize=(40, 40), flags=cv2.cv.CV_HAAR_DO_CANNY_PRUNING)
+        for x1, y1, w1, h1 in faces:
+            roi = frame[y1:(y1+h1), x1:(x1+w1)]
+            result = self.smileCascade.detectMultiScale(roi, scaleFactor=1.3, minNeighbors=4, minSize=(15, 15), flags=cv2.CASCADE_SCALE_IMAGE)
+            for x2, y2, w2, h2 in result:
+                if len(smiles[0]) == 0:
+                    smiles = [[x1+x2, y1+y2, w2, h2]]
+                else:
+                    smiles = np.vstack((smiles, [x1+x2, y1+y2, w2, h2]))
+        if len(smiles[0]) > 0:
+            faces = np.vstack((smiles, faces))
+        return frame, faces
 
     def detectObjects(self, frame):
         newFrame = frame

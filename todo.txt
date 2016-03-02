@@ -41,10 +41,10 @@ artificial general intelligence
     + disable autofocus in camera
       + uvcdynctrl _v _d video1 __get='Focus, Auto'
       + uvcdynctrl _v _d video1 __set='Focus, Auto' 0
-  - mode 0 : faces
-    - smile inside face
+  + mode 0 : faces
+    + smile inside face
     x what other clasifiers are there? | nothing interesting
-    - append smiles (first)
+    + append smiles (first)
   - mode 1 : optical flow
     + http://docs.opencv.org/master/d7/d8b/tutorial_py_lucas_kanade.html#gsc.tab=0 //optical flow
     x histogram equalization too early
