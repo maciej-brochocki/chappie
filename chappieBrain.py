@@ -27,7 +27,9 @@ class Brain(object):
     def attention(self, frame):
         if self.mode == 0:
             frame, objects = self.detectFaces(frame)
-        else:
+        elif self.mode == 1:
+            frame, objects = self.detectFlow(frame)
+        elif self.mode == 2:
             frame, objects = self.detectObjects(frame)
         self.visualizeObjects(frame, objects)
         self.reaction(objects)
@@ -37,7 +39,14 @@ class Brain(object):
         # proceed detection
         smiles = [[]]
         faces = self.faceCascade.detectMultiScale(frame, scaleFactor=1.2, minNeighbors=2, minSize=(40, 40), flags=cv2.cv.CV_HAAR_DO_CANNY_PRUNING)
+        # sort faces so we get the biggest first
+        if len(faces)>0:
+            faces = np.hstack((faces, np.reshape(faces[:,2]*faces[:,3],(-1,1))))
+            faces.view('i32,i32,i32,i32,i32').sort(order=['f4'], axis=0)
+            faces = faces[:,0:4]
+            faces = faces[::-1]
         for x1, y1, w1, h1 in faces:
+            # look for smile inside face
             roi = frame[y1:(y1+h1), x1:(x1+w1)]
             result = self.smileCascade.detectMultiScale(roi, scaleFactor=1.3, minNeighbors=4, minSize=(15, 15), flags=cv2.CASCADE_SCALE_IMAGE)
             for x2, y2, w2, h2 in result:
@@ -45,40 +54,64 @@ class Brain(object):
                     smiles = [[x1+x2, y1+y2, w2, h2]]
                 else:
                     smiles = np.vstack((smiles, [x1+x2, y1+y2, w2, h2]))
+        # put smiles first, so we prefer happy people
         if len(smiles[0]) > 0:
             faces = np.vstack((smiles, faces))
         return frame, faces
+
+    def computeOpticalFlow(self, frame):
+        # get optical flow
+        flow = cv2.calcOpticalFlowFarneback(self.prvsFrame, frame, 0.5, 3, 15, 3, 5, 1.2, 0)
+        fx, fy = flow[:, :, 0], flow[:, :, 1]
+        # become independent of camera moves
+        fx -= np.median(fx)
+        fy -= np.median(fy)
+        # convert to polar as more useful
+        mag, ang = cv2.cartToPolar(fx, fy)
+        mag = np.uint8(mag)
+        return fx, fy, ang, mag
+
+    def detectFlow(self, frame):
+        newFrame = frame
+        objects = []
+        if self.prvsFrame != None:
+            fx, fy, ang, mag = self.computeOpticalFlow(frame)
+            # fancy colours
+            hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
+            hsv[...,0] = ang*180/np.pi/2
+            hsv[...,1] = 255
+            hsv[...,2] = np.minimum(mag*4, 255) #cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
+            newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+            # dummy object for average flow
+            objects = [(self.midScreenX + int(np.sum(fx)/1000), self.midScreenY + int(np.sum(fy)/1000), 2, 2)]
+        self.prvsFrame = frame
+        return newFrame, objects
 
     def detectObjects(self, frame):
         newFrame = frame
         objects = []
         if self.prvsFrame != None:
-            flow = cv2.calcOpticalFlowFarneback(self.prvsFrame, frame, 0.5, 3, 15, 3, 5, 1.2, 0)
-            mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
-            mag = np.uint8(mag)
-            if self.mode == 1:
-                # fancy colours
-                hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
-                hsv[...,0] = ang*180/np.pi/2
-                hsv[...,1] = 255
-                #hsv[...,2] = cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
-                hsv[...,2] = np.minimum(mag*4, 255)
-                newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
-            elif self.mode == 2:
-                # binary
-                ret, newFrame = cv2.threshold(mag,2,255,cv2.THRESH_BINARY)
-                kernel = np.ones((5,5),np.uint8)
-                newFrame = cv2.dilate(newFrame,kernel,iterations = 10)
-                contours,hierarchy = cv2.findContours(newFrame, 1, 2)
-                for cnt in contours:
-                    objects.append(cv2.boundingRect(cnt))
-                objects = mergeAreas([], objects)
-                objects = overlappingAreas(objects, self.prvsObjects)
-                if len(objects):
-                    self.prvsObjects = objects
-                else:
-                    objects = self.prvsObjects
-                newFrame = frame.copy()
+            fx, fy, ang, mag = self.computeOpticalFlow(frame)
+            # convert to binary image
+            ret, newFrame = cv2.threshold(mag,2,255,cv2.THRESH_BINARY)
+            # join close objects
+            kernel = np.ones((5,5),np.uint8)
+            newFrame = cv2.dilate(newFrame,kernel,iterations = 10)
+            # get objects
+            contours,hierarchy = cv2.findContours(newFrame, 1, 2)
+            # convert them to rectangles
+            for cnt in contours:
+                objects.append(cv2.boundingRect(cnt))
+            # join rectangles if they overlap
+            objects = mergeAreas([], objects)
+            # return previous bigger rectangle if applicable
+            objects = overlappingAreas(objects, self.prvsObjects)
+            # return previous results if nothing detected
+            if len(objects):
+                self.prvsObjects = objects
+            else:
+                objects = self.prvsObjects
+            newFrame = frame.copy()
         self.prvsFrame = frame
         return newFrame, objects
 
@@ -114,7 +147,7 @@ class Brain(object):
                 change += self.head.moveRight()
             if change > 0:
                 self.head.updatePosition()
-                self.resetDetector()
+                self.resetDetectors()
             break
         return
 
@@ -124,9 +157,9 @@ class Brain(object):
 
     def setCfg(self):
         self.mode = (self.mode + 1) % 3
+        self.resetDetectors()
         return
 
-    def resetDetector(self):
+    def resetDetectors(self):
         self.prvsFrame = None
         self.prvsObjects = []
-
