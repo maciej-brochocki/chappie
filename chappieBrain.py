@@ -2,15 +2,6 @@ import cv2
 from helpers import *
 
 
-def visualize_objects(frame, objects):
-    # draw face area(s)
-    for (x, y, w, h) in objects:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-    # display the image
-    cv2.imshow('Chappie', frame)
-    return
-
-
 class Brain(object):
     head = None  # head object
     mode = 0  # 0 - face detection, 1 - optical flow, 2 - objects
@@ -41,7 +32,7 @@ class Brain(object):
             frame, objects = self.detect_flow(frame)
         elif self.mode == 2:
             frame, objects = self.detect_objects(frame)
-        visualize_objects(frame, objects)
+        Brain.visualize_objects(frame, objects)
         self.reaction(objects)
         return
 
@@ -127,6 +118,15 @@ class Brain(object):
             new_frame = frame.copy()
         self.previousFrame = frame
         return new_frame, objects
+
+    @staticmethod
+    def visualize_objects(frame, objects):
+        # draw face area(s)
+        for (x, y, w, h) in objects:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        # display the image
+        cv2.imshow('Chappie', frame)
+        return
 
     def reaction(self, objects):
         # Find out if any faces were detected.
