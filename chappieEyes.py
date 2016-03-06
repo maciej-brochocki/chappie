@@ -12,6 +12,8 @@ class Eyes(object):
 
     def __init__(self, cameraDev):
         call("uvcdynctrl" + " -v -d video1 --set='Focus, Auto' 0", shell=True)
+        call("uvcdynctrl" + " -v -d video1 --set='White Balance Temperature, Auto' 0", shell=True)
+        call("uvcdynctrl" + " -v -d video1 --set='Exposure, Auto' 0", shell=True)
         self.video_capture = cv2.VideoCapture(cameraDev) # open video stream
         self.video_capture.set(3, self.width)
         self.video_capture.set(4, self.height)

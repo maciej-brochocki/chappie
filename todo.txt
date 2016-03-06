@@ -34,6 +34,11 @@ artificial general intelligence
     + control keys: switching modes, ? for help, performance info on/off
     + unit tests
       + batch file to run
+    - quality
+      - remove warnings (including convention)
+      - review code (for types used)
+      - generate documentation
+      - test outside of the window
   + eyes
     + pass raw frame (gray)
     + normalize (done, but not usefull here)
@@ -41,6 +46,7 @@ artificial general intelligence
     + disable autofocus in camera
       + uvcdynctrl _v _d video1 __get='Focus, Auto'
       + uvcdynctrl _v _d video1 __set='Focus, Auto' 0
+    + disable other auto features (crap when camera moves)
   + mode 0 : faces
     + smile inside face
     x what other clasifiers are there? | nothing interesting
@@ -86,6 +92,10 @@ artificial general intelligence
   - record till done, wait a sec, replay
   - test of microphone/fft, compression/decompression, speaker
   - don't listen when replay, so no feedback
+  - auto encoder (tech on gray :) )
+    - initialize generation with first sounds of the person
+    - length of response the same as input
+    - so record first x and wait for silence (return length of signal)
 
 - objects recognition
   - if I cut some data then give some information
@@ -109,4 +119,3 @@ artificial general intelligence
   - 3d view
     - http://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html#gsc.tab=0
   - microphone array
-

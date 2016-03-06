@@ -9,7 +9,7 @@ class Brain(object):
     # The variables correspond to the middle of the screen, and will be compared to the midFace values
     midScreenX = 0
     midScreenY = 0
-    midScreenWindow = 20  #CHG: original 10 # This is the acceptable 'error' for the center of the screen. 
+    midScreenWindow = 20  # CHG: original 10 # This is the acceptable 'error' for the center of the screen.
     faceCascade = None
     smileCascade = None
     # Mode 1 & 2 state:
@@ -41,10 +41,7 @@ class Brain(object):
         faces = self.faceCascade.detectMultiScale(frame, scaleFactor=1.2, minNeighbors=2, minSize=(40, 40), flags=cv2.cv.CV_HAAR_DO_CANNY_PRUNING)
         # sort faces so we get the biggest first
         if len(faces)>0:
-            faces = np.hstack((faces, np.reshape(faces[:,2]*faces[:,3],(-1,1))))
-            faces.view('i32,i32,i32,i32,i32').sort(order=['f4'], axis=0)
-            faces = faces[:,0:4]
-            faces = faces[::-1]
+            faces = sortObjectsByIndex(faces, faces[:,2]*faces[:,3])
         for x1, y1, w1, h1 in faces:
             # look for smile inside face
             roi = frame[y1:(y1+h1), x1:(x1+w1)]
@@ -80,7 +77,7 @@ class Brain(object):
             hsv = np.zeros(frame.shape + (3,), dtype=np.uint8)
             hsv[...,0] = ang*180/np.pi/2
             hsv[...,1] = 255
-            hsv[...,2] = np.minimum(mag*4, 255) #cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
+            hsv[...,2] = np.minimum(mag*4, 255) # cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
             newFrame = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
             # dummy object for average flow
             objects = [(self.midScreenX + int(np.sum(fx)/1000), self.midScreenY + int(np.sum(fy)/1000), 2, 2)]
@@ -106,6 +103,12 @@ class Brain(object):
             objects = mergeAreas([], objects)
             # return previous bigger rectangle if applicable
             objects = overlappingAreas(objects, self.prvsObjects)
+            # sort objects so we get the biggest first
+            #if len(objects)>0:
+            #    objects = np.hstack((objects, np.reshape(objects[:,2]*objects[:,3],(-1,1))))
+            #    objects.view('i32,i32,i32,i32,i32').sort(order=['f4'], axis=0)
+            #    objects = objects[:,0:4]
+            #    objects = objects[::-1]
             # return previous results if nothing detected
             if len(objects):
                 self.prvsObjects = objects
