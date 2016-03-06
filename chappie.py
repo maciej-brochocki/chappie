@@ -7,12 +7,13 @@ from chappieBrain import Brain
 
 performance = 0
 
-def help():
+
+def print_help():
     print ""
     print "e - eyes postprocessing"
     print "h - head moves on/off"
     print "b - brain mode"
-    print "p - perfomrance measurement"
+    print "p - performance measurement"
     print "? - help"
     print "q - quit"
 
@@ -20,7 +21,7 @@ def help():
 eyes = Eyes(int(sys.argv[1]))
 head = Head(sys.argv[2], 0)
 brain = Brain(eyes, head)
-help()
+print_help()
 
 while True:
     t1 = cv2.getTickCount()
@@ -44,20 +45,20 @@ while True:
     # control center
     k = cv2.waitKey(1) & 0xFF
     if k == ord('e'):
-        eyes.setCfg()
+        eyes.set_cfg()
     elif k == ord('h'):
-        head.setCfg()
+        head.set_cfg()
     elif k == ord('b'):
-        brain.setCfg()
+        brain.set_cfg()
     elif k == ord('p'):
         performance = 1 - performance
         if performance == 0:
             print ""
     elif k == ord('?'):
-        help()
+        print_help()
     elif k == ord('q'):
         break
 
 # clean up
 eyes.close()
-brain.sleep()
+cv2.destroyAllWindows()

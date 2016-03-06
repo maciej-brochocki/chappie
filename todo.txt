@@ -35,8 +35,8 @@ artificial general intelligence
     + unit tests
       + batch file to run
     - quality
-      - remove warnings (including convention)
-      - review code (for types used)
+      + remove warnings (including convention)
+      + review code (for types used)
       - generate documentation
       - test outside of the window
   + eyes
