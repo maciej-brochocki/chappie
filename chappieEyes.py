@@ -39,4 +39,5 @@ class Eyes(object):
 
     def set_cfg(self):
         self.mode = (self.mode + 1) % 3
+        print "eyes mode: ", self.mode
         return

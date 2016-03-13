@@ -159,6 +159,7 @@ class Brain(object):
     def set_cfg(self):
         self.mode = (self.mode + 1) % 3
         self.reset_detectors()
+        print "brain mode: ", self.mode
         return
 
     def reset_detectors(self):

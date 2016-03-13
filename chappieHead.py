@@ -70,6 +70,7 @@ class Head(object):
 
     def set_cfg(self):
         self.enabled = 1 - self.enabled
+        print "head moves: ", self.enabled
         if self.enabled > 0:
             if self.port is None:
                 self.port = serial.Serial(self.serialDev, 57600)  # Baud rate set to match the Arduino baud rate.

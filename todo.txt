@@ -39,6 +39,7 @@ artificial general intelligence
       + review code (for types used)
       - generate documentation
       - test outside of the window
+    - configuration file
   + eyes
     + pass raw frame (gray)
     + normalize (done, but not usefull here)
@@ -47,15 +48,17 @@ artificial general intelligence
       + uvcdynctrl _v _d video1 __get='Focus, Auto'
       + uvcdynctrl _v _d video1 __set='Focus, Auto' 0
     + disable other auto features (crap when camera moves)
+    - sometimes it seems like autofocus is disabled for wrong camera?? (do for video% param [0..1] ??)
   + mode 0 : faces
     + smile inside face
     x what other clasifiers are there? | nothing interesting
     + append smiles (first)
-  + mode 1 : optical flow
+  - mode 1 : optical flow
     + http://docs.opencv.org/master/d7/d8b/tutorial_py_lucas_kanade.html#gsc.tab=0 //optical flow
     x histogram equalization too early
     + return flow sum as (1,1) rect from mid screen
     + substract median flow vector not to be dependent on head moves
+    - move more than 1 deg (do some calibration for this)
   - mode 2 : objects detection
     + http://docs.opencv.org/master/d6/d00/tutorial_py_root.html#gsc.tab=0 //all
     + http://docs.opencv.org/master/d4/d32/minarea_8cpp_example.html#gsc.tab=0 //min enclose rect
@@ -81,21 +84,32 @@ artificial general intelligence
     - get rid off .copy()
   - head
     + optimize sending to arduino (now can do it 2x per frame)
+    - arrows to move head manually (print unknown key to develop)
     - move head away on bad emotions | add positive or nautral default
 
 - demo for sound
-  - multithreading
-    - producer&consumer
-  - listen and look for change
-    - mono first
-    - "python record audio": pyAudio, psychopy
-  - record till done, wait a sec, replay
+  + listen and look for change
+    + mono first
+    + "python record audio": pyAudio, psychopy
+  + record till done, wait a sec, replay
+  + don't listen when replay, so no feedback
   - test of microphone/fft, compression/decompression, speaker
-  - don't listen when replay, so no feedback
+    - pyaudio input overflowed
+      - run mouth from thread in blocking mode (not callback)
+    - mouth: talk slightly faster - squirrel like? //just higher kHz
+    - brain is not completing when playing (not some special code) record = []
+    - record one frame ahead (if silence record = [sound])
+    - n frames of silence before end (rate/chunk so about a second)
+    - visualize a bit later so [REC] is more actual
+    - print "!" if frame is lost
+    - parameters as in google stt example
+    - visualize fft, check sliding fft, to make sure we analyze proper data
   - auto encoder (tech on gray :) )
     - initialize generation with first sounds of the person
     - length of response the same as input
     - so record first x and wait for silence (return length of signal)
+  - multithreading
+    - producer&consumer
 
 - objects recognition
   - if I cut some data then give some information
