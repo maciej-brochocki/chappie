@@ -3,7 +3,7 @@ import pyaudio
 
 class Ears(object):
     channels = 1
-    rate = 8000
+    rate = 8000  # 16000 for google stt
     format = pyaudio.paInt16
     chunk = 1024
     p = None
@@ -30,6 +30,7 @@ class Ears(object):
         try:
             return self.stream.read(self.chunk)
         except IOError:
+            print "warning: gap in sound input"
             return self.stream.read(self.chunk)
 
     def close(self):

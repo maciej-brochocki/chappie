@@ -6,6 +6,7 @@ artificial general intelligence
   + not too specialized and not too general (only in=>out, because inefficient: requires milenias of evolution or big resources)
     + explicit objects level
 
+[DONE]
 + start from camera example
   + hardware
   + arduino code
@@ -17,6 +18,7 @@ artificial general intelligence
         x own dsho9w graph
     + python instead of c++
     + port example code
+[/DONE]
 
 - attention process
   + motion vectors (video compression, what else is in mpeg) => mode 1
@@ -96,13 +98,13 @@ artificial general intelligence
   - test of microphone/fft, compression/decompression, speaker
     - pyaudio input overflowed
       - run mouth from thread in blocking mode (not callback)
-    - mouth: talk slightly faster - squirrel like? //just higher kHz
+    - mouth: talk slightly faster: squirrel like? //just higher kHz
     - brain is not completing when playing (not some special code) record = []
     - record one frame ahead (if silence record = [sound])
     - n frames of silence before end (rate/chunk so about a second)
-    - visualize a bit later so [REC] is more actual
-    - print "!" if frame is lost
-    - parameters as in google stt example
+    + visualize a bit later so [REC] is more actual
+    + print "!" if frame is lost
+    + parameters as in google stt example
     - visualize fft, check sliding fft, to make sure we analyze proper data
   - auto encoder (tech on gray :) )
     - initialize generation with first sounds of the person

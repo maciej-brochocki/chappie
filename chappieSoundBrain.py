@@ -22,7 +22,6 @@ class Brain(object):
         return
 
     def attention(self, sound):
-        self.visualize_sound(sound)
         if self.compete_record(sound):
             self.record = b''.join(self.record)
             if self.mode == 0:
@@ -30,8 +29,7 @@ class Brain(object):
             elif self.mode == 1:
                 self.replay_random()
             self.record = []
-            # while not self.mouth.done():
-            #     self.ears.hear()  # just drop
+        self.visualize_sound(sound)
         return
 
     def visualize_sound(self, sound):
