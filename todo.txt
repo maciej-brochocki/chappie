@@ -95,17 +95,19 @@ artificial general intelligence
     + "python record audio": pyAudio, psychopy
   + record till done, wait a sec, replay
   + don't listen when replay, so no feedback
-  - test of microphone/fft, compression/decompression, speaker
-    - pyaudio input overflowed
-      - run mouth from thread in blocking mode (not callback)
-    - mouth: talk slightly faster: squirrel like? //just higher kHz
-    - brain is not completing when playing (not some special code) record = []
-    - record one frame ahead (if silence record = [sound])
-    - n frames of silence before end (rate/chunk so about a second)
+  + test of microphone, speaker
+    + pyaudio input overflowed
+      + run mouth from thread in blocking mode (not callback)
+    + mouth: talk slightly faster: squirrel like? //just higher kHz
+    + brain is not completing when playing (not some special code) record = []
+    + record one frame ahead (if silence record = [sound])
+    + n frames of silence before end (rate/chunk so about a second)
     + visualize a bit later so [REC] is more actual
     + print "!" if frame is lost
     + parameters as in google stt example
+  - test fft, compression/decompression
     - visualize fft, check sliding fft, to make sure we analyze proper data
+    - calculate mel
   - auto encoder (tech on gray :) )
     - initialize generation with first sounds of the person
     - length of response the same as input

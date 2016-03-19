@@ -13,6 +13,8 @@ class Brain(object):
     silence_threshold = 1500
     recording_state = 0
     record = []
+    silent_frames = 0
+    silent_frames_limit = 5
     record_num = 0
 
     def __init__(self, ears, mouth):
@@ -42,6 +44,9 @@ class Brain(object):
         return
 
     def compete_record(self, sound):
+        if self.mouth.is_speaking():
+            self.record = []
+            return False
         rms = audioop.rms(sound, self.ears.get_sample_size())
         if rms > self.silence_threshold:
             if self.recording_state == 0:
@@ -51,12 +56,19 @@ class Brain(object):
             else:
                 # continue recording
                 self.record.append(sound)
+            self.silent_frames = self.silent_frames_limit
         else:
             if self.recording_state == 1:
-                # end recording
+                # append some silence or join close records
                 self.record.append(sound)
-                self.recording_state = 0
-                return True
+                self.silent_frames -= 1
+                if self.silent_frames == 0:
+                    # end recording
+                    self.recording_state = 0
+                    return True
+            else:
+                # so we get quite beginnings
+                self.record = [sound]
         return False
 
     def replay_last(self):
