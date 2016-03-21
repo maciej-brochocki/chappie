@@ -1,8 +1,8 @@
 artificial general intelligence
 - research
-  - opencog.org
-  - goodai.com
-  - agi-society.org/resources
+  x opencog.org
+  x agi-society.org/resources
+  - goodai.com | need cuda hw
   + not too specialized and not too general (only in=>out, because inefficient: requires milenias of evolution or big resources)
     + explicit objects level
 
