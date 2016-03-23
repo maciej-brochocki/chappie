@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fba0be53-26e8-4b0f-ab0b-dd3f6d9c7992" name="Default" comment="disable autos for right camera">
+    <list default="true" id="fba0be53-26e8-4b0f-ab0b-dd3f6d9c7992" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mfcc.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_mfcc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/maciej.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/maciej.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieEars.py" afterPath="$PROJECT_DIR$/chappieEars.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieMouth.py" afterPath="$PROJECT_DIR$/chappieMouth.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieSoundBrain.py" afterPath="$PROJECT_DIR$/chappieSoundBrain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.txt" afterPath="$PROJECT_DIR$/todo.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test" afterPath="$PROJECT_DIR$/test" />
     </list>
     <ignored path="chappie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chappieSound.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chappieSound.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chappieSound.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="1.3611557">
               <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#22#32#0" expanded="true" />
@@ -53,20 +54,52 @@
         <entry file="file://$PROJECT_DIR$/chappieMouth.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chappieSoundBrain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chappieSoundBrain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chappieSoundBrain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7223114">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mfcc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mfcc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_mfcc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_mfcc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,8 +140,11 @@
         <option value="$PROJECT_DIR$/chappie.py" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/chappieEars.py" />
-        <option value="$PROJECT_DIR$/chappieMouth.py" />
         <option value="$PROJECT_DIR$/chappieSoundBrain.py" />
+        <option value="$PROJECT_DIR$/test" />
+        <option value="$PROJECT_DIR$/test_mfcc.py" />
+        <option value="$PROJECT_DIR$/mfcc.py" />
+        <option value="$PROJECT_DIR$/chappieMouth.py" />
       </list>
     </option>
   </component>
@@ -245,6 +281,30 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="py.test in test_mfcc.py" type="tests" factoryName="py.test" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="chappie" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="$PROJECT_DIR$/test_mfcc.py" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
       <method />
     </configuration>
@@ -370,16 +430,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.chappie" />
       <item index="1" class="java.lang.String" itemvalue="Python.chappieSound" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_helpers.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test_mfcc.py" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Python.chappieSound" />
-        <item index="1" class="java.lang.String" itemvalue="Python.chappie" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_helpers.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_mfcc.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python.chappie" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test_helpers.py" />
       </list>
     </recent_temporary>
   </component>
@@ -454,19 +516,16 @@
       <option name="project" value="LOCAL" />
       <updated>1458746810386</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sound parameters adjusted to ES 201 108">
+      <created>1458749693431</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1458749693431</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test_helpers_py - 2016.03.06 at 15h 34m 51s.xml">
-      <configuration name="py.test in test_helpers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_helpers_py - 2016.03.06 at 15h 35m 34s.xml">
-      <configuration name="py.test in test_helpers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_helpers_py - 2016.03.06 at 17h 40m 14s.xml">
-      <configuration name="py.test in test_helpers.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_in_test_helpers_py - 2016.03.06 at 17h 41m 19s.xml">
       <configuration name="py.test in test_helpers.py" configurationId="tests" />
     </history-entry>
@@ -487,6 +546,15 @@
     </history-entry>
     <history-entry file="py_test_in_test_helpers_py - 2016.03.06 at 17h 46m 41s.xml">
       <configuration name="py.test in test_helpers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_mfcc_py - 2016.03.23 at 17h 47m 42s.xml">
+      <configuration name="py.test in test_mfcc.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_mfcc_py - 2016.03.23 at 17h 48m 53s.xml">
+      <configuration name="py.test in test_mfcc.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_mfcc_py - 2016.03.23 at 18h 08m 31s.xml">
+      <configuration name="py.test in test_mfcc.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -534,16 +602,12 @@
     <MESSAGE value="sound: play in thread, smarter record completion" />
     <MESSAGE value="arrows to move camera" />
     <MESSAGE value="disable autos for right camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable autos for right camera" />
+    <MESSAGE value="sound parameters adjusted to ES 201 108" />
+    <option name="LAST_COMMIT_MESSAGE" value="sound parameters adjusted to ES 201 108" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/test_helpers.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/0.resources/d.py</url>
           <line>2</line>
@@ -557,7 +621,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="64" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -568,29 +632,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chappieBrain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -624,7 +665,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -661,7 +704,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -830,14 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1152416">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/0.resources/d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -912,20 +949,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chappieSound.py">
+    <entry file="file://$PROJECT_DIR$/test_helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9871589">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-          </folding>
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chappieMouth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -940,10 +985,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chappieSoundBrain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7223114">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mfcc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_mfcc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappieSound.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3611557">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -17,13 +17,11 @@ class MouthThread(threading.Thread):
 
 
 class Mouth(object):
-    p = None
     stream = None
     thread = None
 
     def __init__(self, ears):
-        self.p = ears.p
-        self.stream = self.p.open(output=True, channels=ears.channels, rate=ears.rate, format=ears.format)
+        self.stream = ears.p.open(output=True, channels=ears.channels, rate=ears.rate, format=ears.format)
         # rate=22000 for squirrels
         return
 
