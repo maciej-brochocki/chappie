@@ -1,7 +1,7 @@
 artificial general intelligence
 - research
   x opencog.org
-  x agi-society.org/resources
+  x agi_society.org/resources
   - goodai.com | need cuda hw
   + not too specialized and not too general (only in=>out, because inefficient: requires milenias of evolution or big resources)
     + explicit objects level
@@ -86,7 +86,7 @@ artificial general intelligence
     - get rid off .copy()
   - head
     + optimize sending to arduino (now can do it 2x per frame)
-    - arrows to move head manually (print unknown key to develop)
+    + arrows to move head manually (print unknown key to develop)
     - move head away on bad emotions | add positive or nautral default
 
 - demo for sound
@@ -108,7 +108,7 @@ artificial general intelligence
   - test fft, compression/decompression
     - visualize fft, check sliding fft, to make sure we analyze proper data
     - calculate mel
-  - auto encoder (tech on gray :) )
+  - auto encoder (teach on gray :) )
     - initialize generation with first sounds of the person
     - length of response the same as input
     - so record first x and wait for silence (return length of signal)

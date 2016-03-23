@@ -58,6 +58,14 @@ while True:
         print_help()
     elif k == ord('q'):
         break
+    elif k == 82:
+        head.move_up()
+    elif k == 84:
+        head.move_down()
+    elif k == 81:
+        head.move_left()
+    elif k == 83:
+        head.move_right()
 
 # clean up
 eyes.close()
