@@ -50,7 +50,7 @@ artificial general intelligence
       + uvcdynctrl _v _d video1 __get='Focus, Auto'
       + uvcdynctrl _v _d video1 __set='Focus, Auto' 0
     + disable other auto features (crap when camera moves)
-    - sometimes it seems like autofocus is disabled for wrong camera?? (do for video% param [0..1] ??)
+    + sometimes it seems like autofocus is disabled for wrong camera?? (do for video% param [0..1] ??)
   + mode 0 : faces
     + smile inside face
     x what other clasifiers are there? | nothing interesting

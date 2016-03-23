@@ -12,6 +12,7 @@ def print_help():
     print ""
     print "e - eyes postprocessing"
     print "h - head moves on/off"
+    print "arrows - move head"
     print "b - brain mode"
     print "p - performance measurement"
     print "? - help"
