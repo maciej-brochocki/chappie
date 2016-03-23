@@ -14,13 +14,14 @@ class Brain(object):
     recording_state = 0
     record = []
     silent_frames = 0
-    silent_frames_limit = 5
+    silent_frames_limit = 0
     record_num = 0
 
     def __init__(self, ears, mouth):
         self.record_num = len(os.listdir("./sounds"))
         self.ears = ears
         self.mouth = mouth
+        self.silent_frames_limit = int(ears.rate / ears.chunk)
         return
 
     def attention(self, sound):

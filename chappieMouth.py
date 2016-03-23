@@ -23,7 +23,8 @@ class Mouth(object):
 
     def __init__(self, ears):
         self.p = ears.p
-        self.stream = self.p.open(output=True, channels=ears.channels, rate=11000, format=ears.format)  # rate=ears.rate
+        self.stream = self.p.open(output=True, channels=ears.channels, rate=ears.rate, format=ears.format)
+        # rate=22000 for squirrels
         return
 
     def talk(self, record):

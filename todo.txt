@@ -24,7 +24,7 @@ artificial general intelligence
   + motion vectors (video compression, what else is in mpeg) => mode 1
     + actually called motion estimation
       x PRA (pel recursive algorithm) : complex
-      x BMA (block matching algorithm) : simpe
+      x BMA (block matching algorithm) : simple
       x phase corelation
       + optical fglow : in OpenCV
   + automatically creates objects => mode 2

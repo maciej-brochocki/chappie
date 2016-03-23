@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fba0be53-26e8-4b0f-ab0b-dd3f6d9c7992" name="Default" comment="">
+    <list default="true" id="fba0be53-26e8-4b0f-ab0b-dd3f6d9c7992" name="Default" comment="disable autos for right camera">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappie.py" afterPath="$PROJECT_DIR$/chappie.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieEyes.py" afterPath="$PROJECT_DIR$/chappieEyes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieEars.py" afterPath="$PROJECT_DIR$/chappieEars.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieMouth.py" afterPath="$PROJECT_DIR$/chappieMouth.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieSoundBrain.py" afterPath="$PROJECT_DIR$/chappieSoundBrain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.txt" afterPath="$PROJECT_DIR$/todo.txt" />
     </list>
     <ignored path="chappie.iws" />
@@ -42,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/chappieEars.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -52,17 +53,17 @@
         <entry file="file://$PROJECT_DIR$/chappieMouth.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+              <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chappieSoundBrain.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chappieSoundBrain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chappieSoundBrain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7223114">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -70,28 +71,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todo.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chappieEyes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chappieEyes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chappie.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chappie.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -122,12 +103,12 @@
         <option value="$PROJECT_DIR$/chappieBrain.py" />
         <option value="$PROJECT_DIR$/chappieHead.py" />
         <option value="$PROJECT_DIR$/chappieSound.py" />
-        <option value="$PROJECT_DIR$/chappieEars.py" />
-        <option value="$PROJECT_DIR$/chappieSoundBrain.py" />
-        <option value="$PROJECT_DIR$/chappieMouth.py" />
         <option value="$PROJECT_DIR$/chappieEyes.py" />
-        <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/chappie.py" />
+        <option value="$PROJECT_DIR$/todo.txt" />
+        <option value="$PROJECT_DIR$/chappieEars.py" />
+        <option value="$PROJECT_DIR$/chappieMouth.py" />
+        <option value="$PROJECT_DIR$/chappieSoundBrain.py" />
       </list>
     </option>
   </component>
@@ -205,7 +186,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1021" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
-  <component name="RunManager" selected="Python.chappie">
+  <component name="RunManager" selected="Python.chappieSound">
     <configuration default="false" name="chappie" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -396,8 +377,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.chappie" />
-        <item index="1" class="java.lang.String" itemvalue="Python.chappieSound" />
+        <item index="0" class="java.lang.String" itemvalue="Python.chappieSound" />
+        <item index="1" class="java.lang.String" itemvalue="Python.chappie" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_helpers.py" />
       </list>
     </recent_temporary>
@@ -467,7 +448,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458746392172</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="disable autos for right camera">
+      <created>1458746810386</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1458746810386</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -513,9 +500,9 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18867925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39591837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23163265" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23061225" sideWeight="0.4916442" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33367348" sideWeight="0.4916442" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23061225" sideWeight="0.5083558" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33367348" sideWeight="0.5083558" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42959183" sideWeight="0.49811321" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -546,7 +533,8 @@
     <MESSAGE value="sound clean-up" />
     <MESSAGE value="sound: play in thread, smarter record completion" />
     <MESSAGE value="arrows to move camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="arrows to move camera" />
+    <MESSAGE value="disable autos for right camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable autos for right camera" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,47 +888,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chappieMouth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chappieEars.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chappieEyes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chappieSoundBrain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chappieSound.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -957,6 +909,42 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappieSound.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappieMouth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappieEars.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappieSoundBrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7223114">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
