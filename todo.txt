@@ -105,9 +105,11 @@ artificial general intelligence
     + visualize a bit later so [REC] is more actual
     + print "!" if frame is lost
     + parameters as in google stt example
+    + wrong conversion for visualization
   - test fft, compression/decompression
     - visualize fft, check sliding fft, to make sure we analyze proper data
     - calculate mel
+  - celebrity voice changer?
   - auto encoder (teach on gray :) )
     - initialize generation with first sounds of the person
     - length of response the same as input

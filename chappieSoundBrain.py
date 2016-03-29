@@ -4,6 +4,7 @@ import numpy as np
 import cv2
 import wave
 import os
+import struct
 
 
 class Brain(object):
@@ -36,9 +37,10 @@ class Brain(object):
         return
 
     def visualize_sound(self, sound):
+        samples = struct.unpack("<%ih" % (len(sound)/2), sound)
         snd = np.zeros((256, self.ears.chunk), dtype=np.uint8)
         for i in range(self.ears.chunk):
-            snd[ord(sound[i*self.ears.get_sample_size()]), i] = 255
+            snd[128 + samples[i] / 256, i] = 255
         if self.recording_state == 1:
             cv2.rectangle(snd, (self.ears.chunk-11, 256-11), (self.ears.chunk-2, 256-2), 255, cv2.cv.CV_FILLED)
         cv2.imshow('Osc', snd)
