@@ -106,6 +106,8 @@ artificial general intelligence
     + print "!" if frame is lost
     + parameters as in google stt example
     + wrong conversion for visualization
+  - multithreading
+    - producer&consumer
   - test fft, compression/decompression
     - visualize fft, check sliding fft, to make sure we analyze proper data
     - calculate mel
@@ -114,8 +116,6 @@ artificial general intelligence
     - initialize generation with first sounds of the person
     - length of response the same as input
     - so record first x and wait for silence (return length of signal)
-  - multithreading
-    - producer&consumer
 
 - objects recognition
   - if I cut some data then give some information

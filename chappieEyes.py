@@ -6,6 +6,7 @@ class Eyes(object):
     # Screen Size Parameters
     width = 320
     height = 240
+    fps = 15
     # Camera device
     video_Capture = None
     # Pre-processing mode
@@ -16,8 +17,9 @@ class Eyes(object):
         call("uvcdynctrl -v -d video%d --set='White Balance Temperature, Auto' 0" % camera_dev, shell=True)
         call("uvcdynctrl -v -d video%d --set='Exposure, Auto' 0" % camera_dev, shell=True)
         self.video_capture = cv2.VideoCapture(camera_dev)  # open video stream
-        self.video_capture.set(3, self.width)
-        self.video_capture.set(4, self.height)
+        self.video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, self.width)
+        self.video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, self.height)
+        self.video_capture.set(cv2.cv.CV_CAP_PROP_FPS, self.fps)
         return
 
     def look(self):

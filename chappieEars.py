@@ -3,7 +3,7 @@ import pyaudio
 
 class Ears(object):
     channels = 1
-    rate = 16000  # 16000 for google stt
+    rate = 8000  # 16000 for google stt
     format = pyaudio.paInt16
     chunk = 400
     p = None
