@@ -1,4 +1,20 @@
 import serial
+import threading
+
+
+class HeadThread(threading.Thread):
+    port = None
+    ctrl_frame = None
+
+    def __init__(self, port, ctrl_frame):
+        self.port = port
+        self.ctrl_frame = ctrl_frame
+        super(HeadThread, self).__init__()
+        return
+
+    def run(self):
+        self.port.write(self.ctrl_frame)
+        return
 
 
 class Head(object):
@@ -15,6 +31,7 @@ class Head(object):
     port = None
     # Whether use Arduino
     enabled = 0
+    thread = None
 
     def __init__(self, serial_dev, enabled=0):
         self.enabled = enabled
@@ -65,7 +82,10 @@ class Head(object):
         ctrl_frame[2] = self.panChannel         # Send the Pan Servo ID
         ctrl_frame[3] = self.servoPanPosition   # Send the Pan Position
         if self.enabled > 0:
-            self.port.write(ctrl_frame)
+            if self.thread is not None:
+                self.thread.join()
+            self.thread = HeadThread(self.port, ctrl_frame)
+            self.thread.start()
         return
 
     def set_cfg(self):

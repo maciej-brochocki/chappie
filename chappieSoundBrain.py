@@ -11,7 +11,7 @@ class Brain(object):
     ears = None  # ears object
     mouth = None  # mouth object
     mode = 0  # 0 - replay last, 1 - replay random
-    silence_threshold = 1500
+    silence_threshold = 2000
     recording_state = 0
     record = []
     silent_frames = 0
