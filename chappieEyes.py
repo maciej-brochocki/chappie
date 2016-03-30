@@ -6,7 +6,7 @@ class Eyes(object):
     # Screen Size Parameters
     width = 320
     height = 240
-    fps = 15
+    fps = 10
     # Camera device
     video_Capture = None
     # Pre-processing mode
