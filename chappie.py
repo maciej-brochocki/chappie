@@ -75,8 +75,8 @@ def chappie():
 
     # clean up
     eyes.close()
-    cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
     chappie()
+    cv2.destroyAllWindows()

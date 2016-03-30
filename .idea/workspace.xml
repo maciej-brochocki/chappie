@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba0be53-26e8-4b0f-ab0b-dd3f6d9c7992" name="Default" comment="fixed sound visualization">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/combo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/combo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappie.py" afterPath="$PROJECT_DIR$/chappie.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieSound.py" afterPath="$PROJECT_DIR$/chappieSound.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chappieSoundBrain.py" afterPath="$PROJECT_DIR$/chappieSoundBrain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go" afterPath="$PROJECT_DIR$/go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combo.py" afterPath="$PROJECT_DIR$/combo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mfcc.py" afterPath="$PROJECT_DIR$/mfcc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_mfcc.py" afterPath="$PROJECT_DIR$/test_mfcc.py" />
     </list>
@@ -85,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="combo.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="combo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/combo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6741573">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -107,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chappieSound.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chappieSound.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chappieSound.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54253614">
-              <caret line="47" column="23" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="72" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding>
                 <element signature="e#22#32#0" expanded="true" />
               </folding>
@@ -159,10 +156,10 @@
         <option value="$PROJECT_DIR$/chappieHead.py" />
         <option value="$PROJECT_DIR$/chappieEars.py" />
         <option value="$PROJECT_DIR$/chappieSoundBrain.py" />
+        <option value="$PROJECT_DIR$/combo" />
         <option value="$PROJECT_DIR$/chappie.py" />
         <option value="$PROJECT_DIR$/chappieSound.py" />
         <option value="$PROJECT_DIR$/combo.py" />
-        <option value="$PROJECT_DIR$/combo" />
       </list>
     </option>
   </component>
@@ -620,7 +617,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459360763907</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="prepare for demo">
+      <created>1459365776610</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1459365776610</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -659,6 +662,7 @@
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -673,7 +677,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.327551" sideWeight="0.49811321" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24982156" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1088,31 +1091,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chappie.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/go">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/combo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1126,10 +1109,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chappieSound.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54253614">
-          <caret line="47" column="23" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="e#22#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chappie.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6741573">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>

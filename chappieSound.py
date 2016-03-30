@@ -64,9 +64,9 @@ def chappie_sound():
     # clean up
     ears.close()
     mouth.close()
-    cv2.destroyAllWindows()
     p.terminate()
 
 
 if __name__ == '__main__':
     chappie_sound()
+    cv2.destroyAllWindows()
