@@ -1,1 +1,1 @@
-python chappie.py 1 /dev/ttyACM0
+python chappie.py 0 /dev/ttyACM0
