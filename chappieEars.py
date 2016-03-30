@@ -31,7 +31,11 @@ class Ears(object):
             return self.stream.read(self.chunk)
         except IOError:
             print "warning: gap in sound input"
-            return self.stream.read(self.chunk)
+            try:
+                return self.stream.read(self.chunk)
+            except IOError:
+                print "Error: double gap in sound input"
+                return None
 
     def close(self):
         self.stream.stop_stream()

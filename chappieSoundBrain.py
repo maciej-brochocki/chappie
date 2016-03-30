@@ -37,6 +37,8 @@ class Brain(object):
         return
 
     def visualize_sound(self, sound):
+        if sound is None:
+            return
         samples = struct.unpack("<%ih" % (len(sound)/2), sound)
         snd = np.zeros((256, self.ears.chunk), dtype=np.uint8)
         for i in range(self.ears.chunk):
@@ -47,6 +49,8 @@ class Brain(object):
         return
 
     def compete_record(self, sound):
+        if sound is None:
+            return False
         if self.mouth.is_speaking():
             self.record = []
             return False
