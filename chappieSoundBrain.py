@@ -46,6 +46,7 @@ class Brain(object):
         if self.recording_state == 1:
             cv2.rectangle(snd, (self.ears.chunk-11, 256-11), (self.ears.chunk-2, 256-2), 255, cv2.cv.CV_FILLED)
         cv2.imshow('Osc', snd)
+        cv2.moveWindow('Osc', 0, 0)
         return
 
     def compete_record(self, sound):

@@ -126,6 +126,7 @@ class Brain(object):
             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         # display the image
         cv2.imshow('Chappie', frame)
+        cv2.moveWindow('Chappie', 0, 500)
         return
 
     def reaction(self, objects):

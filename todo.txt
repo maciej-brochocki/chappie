@@ -108,6 +108,10 @@ artificial general intelligence
     + wrong conversion for visualization
   - multithreading
     - producer&consumer
+    - common FPS
+    - hear, see -> attention (thread) -> attention_vision.start + attention_sound.start?
+    + place windows in different positions
+    - remove audio warnings
   - test fft, compression/decompression
     - visualize fft, check sliding fft, to make sure we analyze proper data
     - calculate mel
