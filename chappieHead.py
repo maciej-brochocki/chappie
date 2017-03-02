@@ -25,7 +25,7 @@ class Head(object):
     tiltChannel = 0
     panChannel = 1
     # The degree of change that will be applied to the servo each time we update the position.
-    stepSize = 2
+    stepSize = 1
     # Serial device
     serialDev = ""
     port = None
